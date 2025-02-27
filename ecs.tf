@@ -1,12 +1,12 @@
 # Create two ECR repo for S3 and SQS services
 
 # resource "aws_ecr_repository" "flask-sqs-repo" {
-#   name         = "yap-flask-sqs-repo"
+#   name         = "choonyee-flask-sqs-repo"
 #   force_delete = true
 # }
 
 # resource "aws_ecr_repository" "flask-s3-repo" {
-#   name         = "yap-flask-s3-repo"
+#   name         = "choonyee-flask-s3-repo"
 #   force_delete = true
 # }
 
@@ -15,7 +15,7 @@ module "ecs" {
   source  = "terraform-aws-modules/ecs/aws"
   version = "~> 5.9.0"
 
-  cluster_name = "yap-cluster"
+  cluster_name = "choonyee-cluster"
 
   fargate_capacity_providers = {
     FARGATE = {
@@ -26,12 +26,12 @@ module "ecs" {
   }
 
   services = {
-    yap-s3-service = {
+    choonyee-s3-service = {
       cpu    = 512
       memory = 1024
 
       container_definitions = {
-        yap-s3-app = {
+        choonyee-s3-app = {
           essential = true
           image     = "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/yap-flask-s3-repo:latest"
           port_mappings = [
@@ -55,7 +55,7 @@ module "ecs" {
       memory = 1024
 
       container_definitions = {
-        yap-sqs-app = {
+        choonyee-sqs-app = {
           essential = true
           image     = "255945442255.dkr.ecr.ap-southeast-1.amazonaws.com/yap-flask-sqs-repo:latest"
           port_mappings = [
