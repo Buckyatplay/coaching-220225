@@ -1,6 +1,6 @@
 # Security Group for ECS S3 service
 resource "aws_security_group" "ecs-s3-sg" {
-  name_prefix = "yap-ecs-s3-sg" #Security group name, e.g. jazeel-terraform-security-group
+  name_prefix = "choonyee-ecs-s3-sg" #Security group name, e.g. jazeel-terraform-security-group
   description = "Security group for ECS S3 service"
   vpc_id      = data.aws_vpc.selected.id #VPC ID (Same VPC as your EC2 subnet above), E.g. vpc-xxxxxxx
 
@@ -26,7 +26,7 @@ resource "aws_vpc_security_group_egress_rule" "allow_outbound_5001" {
 
 # Security Group for ECS SQS service
 resource "aws_security_group" "ecs-sqs-sg" {
-  name_prefix = "yap-ecs-sqs-sg" #Security group name, e.g. jazeel-terraform-security-group
+  name_prefix = "choonyee-ecs-sqs-sg" #Security group name, e.g. jazeel-terraform-security-group
   description = "Security group for ECS SQS service"
   vpc_id      = data.aws_vpc.selected.id #VPC ID (Same VPC as your EC2 subnet above), E.g. vpc-xxxxxxx
 
